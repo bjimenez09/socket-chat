@@ -5,6 +5,8 @@ const cors = require("cors");
 const { Server } = require("socket.io");
 app.use(cors());
 
+const PORT = process.env.PORT || 3001;
+
 const server = http.createServer(app);
 
 const io = new Server(server, {
@@ -39,6 +41,6 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
-server.listen(3001, () => {
+server.listen(PORT, () => {
   console.log("Welcome to WeirdMusic!");
 });
